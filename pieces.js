@@ -2,14 +2,24 @@
 const reponse = await fetch('pieces-autos.json');
 const pieces = await reponse.json();
 
-// Création des balises html //
-const article =  pieces[0]
 
-const imageElements = document.createElement("img");
-imageElements.src = article.image;
+    // Boucle for pour affiché toutes les pièces //
+for (let i = 0; i < pieces.length; i++) {
 
-const nomElements = document.createElement("h2");
-nomElements.innerText = article.nom;
+
+    // Création des balises html //
+const article = pieces[i]
+
+// Rattachemenst au balise du DOM //
+const sectionFiches = document.querySelector(".fiches");
+
+const piecesElement =  document.createElement("article");
+
+const imageElement = document.createElement("img");
+imageElement.src = article.image;
+
+const nomElement = document.createElement("h2");
+nomElement.innerText = article.nom;
 
 const prixElement = document.createElement("p");
 prixElement.innerText = `Prix : ${article.prix} € (${article.prix < 35 ? "€" : "€€€"})`;
@@ -24,13 +34,13 @@ const disponibiliteElement = document.createElement("p");
 disponibiliteElement.innerText = article.disponibilite ? "En stock" : "En rupture de stock"; 
 
 
-// Rattachemenst au balise du DOM //
-const sectionFiches = document.querySelector(".fiches");
 
-sectionFiches.appendChild(imageElements);
-sectionFiches.appendChild(nomElements);
-sectionFiches.appendChild(prixElement);
-sectionFiches.appendChild(categorieElement);
-sectionFiches.appendChild(descriptionElement);
-sectionFiches.appendChild(disponibiliteElement);
+sectionFiches.appendChild(piecesElement);
+piecesElement.appendChild(imageElement);
+piecesElement.appendChild(nomElement);
+piecesElement.appendChild(prixElement);
+piecesElement.appendChild(categorieElement);
+piecesElement.appendChild(descriptionElement);
+piecesElement.appendChild(disponibiliteElement);
 
+}
