@@ -88,3 +88,22 @@ boutonDecroissant.addEventListener("click", function () {
 })
 
 
+const noms = pieces.map(pieces => pieces.nom);
+for(let i = pieces.length -1; i >= 0; i--){
+    if(pieces[i].prix > 35){
+        noms.splice(i,1)
+    }
+}
+console.log(noms)
+
+const abordableElement = document.createElement("ul");
+
+
+for(let i=0; i < noms.length ; i++){
+    const nomElement = document.createElement("li");
+    nomElement.innerText = noms[i];
+    abordableElement.appendChild(nomElement)
+}
+
+document.querySelector(".abordable")
+    .appendChild(abordableElement)
