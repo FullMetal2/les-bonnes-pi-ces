@@ -44,3 +44,47 @@ piecesElement.appendChild(descriptionElement);
 piecesElement.appendChild(disponibiliteElement);
 
 }
+
+const boutonTrier = document.querySelector(".btn-trier");
+
+boutonTrier.addEventListener("click", function () {
+    const piecesOrdonnes = Array.from(pieces);
+    
+    piecesOrdonnes.sort(function (a, b) {
+        return a.prix - b.prix;
+    });
+    console.log(piecesOrdonnes);
+});
+
+
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFiltrer.addEventListener("click", function () {
+    const piecesFiltrees = pieces.filter(function (pieces) {
+        return pieces.prix <= 35;
+    });
+    console.log(piecesFiltrees);
+});
+
+
+const boutonDescription = document.querySelector(".btn-description");
+
+boutonDescription.addEventListener("click", function () {
+    const piecesFiltrees = pieces.filter(function (pieces) {
+        return pieces.description;
+    });
+    console.log(piecesFiltrees)
+})
+
+const boutonDecroissant = document.querySelector(".btn-decroissant");
+
+boutonDecroissant.addEventListener("click", function () {
+    const piecesOrdonnes = Array.from(pieces);
+
+    piecesOrdonnes.sort(function (a, b) {
+        return b.prix - a.prix;
+    });
+    console.log(piecesOrdonnes);
+})
+
+
