@@ -1,4 +1,4 @@
-// Récupération pièces du fichier JSON //
+    // Récupération pièces du fichier JSON //
 const reponse = await fetch('pieces-autos.json');
 const pieces = await reponse.json();
 
@@ -10,7 +10,7 @@ for (let i = 0; i < pieces.length; i++) {
     // Création des balises html //
 const article = pieces[i]
 
-// Rattachemenst au balise du DOM //
+    // Rattachement au balise du DOM //
 const sectionFiches = document.querySelector(".fiches");
 
 const piecesElement =  document.createElement("article");
@@ -34,7 +34,7 @@ const disponibiliteElement = document.createElement("p");
 disponibiliteElement.innerText = article.disponibilite ? "En stock" : "En rupture de stock"; 
 
 
-
+    //Rattachement à la section du DOM //
 sectionFiches.appendChild(piecesElement);
 piecesElement.appendChild(imageElement);
 piecesElement.appendChild(nomElement);
@@ -45,6 +45,8 @@ piecesElement.appendChild(disponibiliteElement);
 
 }
 
+
+    //Fonction click  pour trier les pièces par rapport è leurs prix //
 const boutonTrier = document.querySelector(".btn-trier");
 
 boutonTrier.addEventListener("click", function () {
@@ -56,7 +58,7 @@ boutonTrier.addEventListener("click", function () {
     console.log(piecesOrdonnes);
 });
 
-
+    // Fonction click pour filtrer les pièces moins de 35 euros //
 const boutonFiltrer = document.querySelector(".btn-filtrer");
 
 boutonFiltrer.addEventListener("click", function () {
@@ -66,7 +68,7 @@ boutonFiltrer.addEventListener("click", function () {
     console.log(piecesFiltrees);
 });
 
-
+    //Fonction click pour filtrer les pièces par desciption //
 const boutonDescription = document.querySelector(".btn-description");
 
 boutonDescription.addEventListener("click", function () {
@@ -76,6 +78,8 @@ boutonDescription.addEventListener("click", function () {
     console.log(piecesFiltrees)
 })
 
+
+    // Fonction click pour tier les pièces par prix décroissant //
 const boutonDecroissant = document.querySelector(".btn-decroissant");
 
 boutonDecroissant.addEventListener("click", function () {
@@ -87,7 +91,7 @@ boutonDecroissant.addEventListener("click", function () {
     console.log(piecesOrdonnes);
 })
 
-
+    // Fonction MAP pour avoir la liste des pièces mais uniquement avec le nom de celle-ci et retirer de la liste les pièces supérieur à 35 euro //
 const noms = pieces.map(pieces => pieces.nom);
 for(let i = pieces.length -1; i >= 0; i--){
     if(pieces[i].prix > 35){
@@ -96,8 +100,9 @@ for(let i = pieces.length -1; i >= 0; i--){
 }
 console.log(noms)
 
-const abordableElement = document.createElement("ul");
 
+    // Fonction pour créer un élément liste (UL) pouir faire une liste avec les pièces qui sont inférieur à 35 euro //
+const abordableElement = document.createElement("ul");
 
 for(let i=0; i < noms.length ; i++){
     const nomElement = document.createElement("li");
