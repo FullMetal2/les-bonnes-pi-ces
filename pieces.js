@@ -3,8 +3,10 @@ const reponse = await fetch('pieces-autos.json');
 const pieces = await reponse.json();
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Boucle for pour affiché toutes les pièces //
-for (let i = 0; i < pieces.length; i++) {
+function generePieces(pieces){
+    for (let i = 0; i < pieces.length; i++) {
 
 
     // Création des balises html //
@@ -43,9 +45,12 @@ piecesElement.appendChild(categorieElement);
 piecesElement.appendChild(descriptionElement);
 piecesElement.appendChild(disponibiliteElement);
 
+    }
 }
 
+generePieces(pieces);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Fonction click  pour trier les pièces par rapport è leurs prix //
 const boutonTrier = document.querySelector(".btn-trier");
 
@@ -55,9 +60,13 @@ boutonTrier.addEventListener("click", function () {
     piecesOrdonnes.sort(function (a, b) {
         return a.prix - b.prix;
     });
+    document.querySelector(".fiches").innerHTML = "";
+    generePieces(piecesOrdonnes);
     console.log(piecesOrdonnes);
 });
 
+
+                //////////////////////////////////////////////////////////
     // Fonction click pour filtrer les pièces moins de 35 euros //
 const boutonFiltrer = document.querySelector(".btn-filtrer");
 
@@ -65,9 +74,12 @@ boutonFiltrer.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (pieces) {
         return pieces.prix <= 35;
     });
+    document.querySelector(".fiches").innerHTML = "";
+    generePieces(piecesFiltrees);
     console.log(piecesFiltrees);
 });
 
+                /////////////////////////////////////////////////////////
     //Fonction click pour filtrer les pièces par desciption //
 const boutonDescription = document.querySelector(".btn-description");
 
@@ -75,10 +87,13 @@ boutonDescription.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (pieces) {
         return pieces.description;
     });
+    document.querySelector(".fiches").innerHTML = "";
+    generePieces(piecesFiltrees)
     console.log(piecesFiltrees)
 })
 
 
+                ///////////////////////////////////////////////////////////
     // Fonction click pour tier les pièces par prix décroissant //
 const boutonDecroissant = document.querySelector(".btn-decroissant");
 
@@ -88,9 +103,12 @@ boutonDecroissant.addEventListener("click", function () {
     piecesOrdonnes.sort(function (a, b) {
         return b.prix - a.prix;
     });
+    document.querySelector(".fiches").innerHTML = "";
+    generePieces(piecesOrdonnes);
     console.log(piecesOrdonnes);
 })
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Fonction MAP pour avoir la liste des pièces mais uniquement avec le nom de celle-ci et retirer de la liste les pièces supérieur à 35 euro //
 const noms = pieces.map(pieces => pieces.nom);
 
@@ -100,6 +118,11 @@ for(let i = pieces.length -1; i >= 0; i--){
     }
 }
 console.log(noms)
+
+            //////////////////////////////////////////////////////////////
+    // Creation de l'ent-ête //
+const pElement = document.createElement("p")
+    pElement.innerText = "Pièces Abordables :"
 
     // Fonction pour créer un élément liste (UL) pouir faire une liste avec les pièces qui sont inférieur à 35 euro //
 const abordableElement = document.createElement("ul");
@@ -112,8 +135,11 @@ for(let i=0; i < noms.length ; i++){
 }
 
 document.querySelector(".abordable")
+    .appendChild(pElement)
     .appendChild(abordableElement)
 
+
+            ///////////////////////////////////////////////////////////////
     //Fonction afficher une liste de pièces disponible avec leurs prix //
 
 const nomsDisponible = pieces.map(pieces => pieces.nom);
@@ -128,6 +154,8 @@ for(let i = pieces.length -1 ; i >= 0; i--){
 
 console.log(nomsDisponible, prixDisponible)
 
+
+            ////////////////////////////////////////////////////////////////
 const disponibleElement = document.createElement("ul");
 
 for(let i=0; i < nomsDisponible.length ; i++){
@@ -137,5 +165,22 @@ for(let i=0; i < nomsDisponible.length ; i++){
 
 }
 
+const pElmentDisponible = document.createElement("p")
+pElmentDisponible.innerText = "Pièces disponible :"
+
 document.querySelector(".disponible")
+    .appendChild(pElmentDisponible)
     .appendChild(disponibleElement)
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+// fonction input RANGE filtre //
+
+const inputPrixMax = document.querySelector("#prix-max")
+inputPrixMax.addEventListener("input", function () {
+    const piecesFiltrees = pieces.filter(function(pieces){
+        return pieces.prix <= inputPrixMax.value;
+    });
+    document.querySelector(".fiches").innerHTML = "";
+    generePieces(piecesFiltrees);
+})
