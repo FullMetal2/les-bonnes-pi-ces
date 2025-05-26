@@ -93,13 +93,13 @@ boutonDecroissant.addEventListener("click", function () {
 
     // Fonction MAP pour avoir la liste des pièces mais uniquement avec le nom de celle-ci et retirer de la liste les pièces supérieur à 35 euro //
 const noms = pieces.map(pieces => pieces.nom);
+
 for(let i = pieces.length -1; i >= 0; i--){
     if(pieces[i].prix > 35){
         noms.splice(i,1)
     }
 }
 console.log(noms)
-
 
     // Fonction pour créer un élément liste (UL) pouir faire une liste avec les pièces qui sont inférieur à 35 euro //
 const abordableElement = document.createElement("ul");
@@ -108,7 +108,34 @@ for(let i=0; i < noms.length ; i++){
     const nomElement = document.createElement("li");
     nomElement.innerText = noms[i];
     abordableElement.appendChild(nomElement)
+
 }
 
 document.querySelector(".abordable")
     .appendChild(abordableElement)
+
+    //Fonction afficher une liste de pièces disponible avec leurs prix //
+
+const nomsDisponible = pieces.map(pieces => pieces.nom);
+const prixDisponible = pieces.map(pieces => pieces.prix);
+
+for(let i = pieces.length -1 ; i >= 0; i--){
+    if(pieces[i].disponibilite === false){
+        nomsDisponible.splice(i,1)
+        prixDisponible.splice(i,1)
+    }
+}
+
+console.log(nomsDisponible, prixDisponible)
+
+const disponibleElement = document.createElement("ul");
+
+for(let i=0; i < nomsDisponible.length ; i++){
+    const nomElement = document.createElement("li");
+    nomElement.innerText = `${nomsDisponible[i]} - ${prixDisponible[i]} €`
+    disponibleElement.appendChild(nomElement)
+
+}
+
+document.querySelector(".disponible")
+    .appendChild(disponibleElement)
