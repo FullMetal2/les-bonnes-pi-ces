@@ -225,3 +225,4 @@ inputPrixMax.addEventListener("input", function () {
 })
 
 await afficherGraphiqueAvis();
+await afficherGraphiqueDisponible();
