@@ -1,0 +1,111 @@
+[33mcommit c8c912752643d6971f96969d126e7db97ca247ad[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Mon May 26 15:23:34 2025 +0200
+
+    Ajout du dossier API back-end sans le dépot git
+
+[33mcommit 64db32f62dc9f28f2a43d154a9d88961c90776b8[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Mon May 26 15:14:45 2025 +0200
+
+    config api http avec pieces.js
+
+[33mcommit 4642de7047fd895329648b591901d3cb46e8bbb6[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Mon May 26 14:25:45 2025 +0200
+
+    Mise en place api pour les avis c'est ok les boutons afficher les avis fonctionne correctement j'ai bien la réponse de la requête dans le terminal
+
+[33mcommit 6dab9376a59ea945b93ae039b03115865f85a325[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Mon May 26 11:04:44 2025 +0200
+
+    fonction input Range
+
+[33mcommit 7d2212cbf4372e269cc18399cfb8ad89a5b2239c[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Mon May 26 10:03:02 2025 +0200
+
+    ajout de fonction disponible avec prix
+
+[33mcommit 99c290c23fab06720f36fecfe3958308c45455aa[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Mon May 26 08:51:31 2025 +0200
+
+    Ajout de commentaire
+
+[33mcommit 399aa3df04de294198f00fc57c6d8a4b09961626[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Fri May 23 16:11:51 2025 +0200
+
+    liste ajouté avec JS
+
+[33mcommit 63d5ec2a8559bed80993b77c84e65350e44b72b6[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Fri May 23 15:02:56 2025 +0200
+
+    Rajout des boutons et leurs fonction pour filtrer
+
+[33mcommit 889d247c9e5782e74a8d63728c692ecea245721c[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Thu May 22 16:37:50 2025 +0200
+
+    affichage de toutes les pièces par JS
+
+[33mcommit 51a9cafc6a19032403b69da605908b21b9ced10e[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Wed May 21 18:19:15 2025 +0200
+
+    modif
+
+[33mcommit b038aa2cf00f41e5ec64dcea4bbb2b5c8943cb4c[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Wed May 21 18:06:40 2025 +0200
+
+    creation des element html avec javascript et fonction ternaire
+
+[33mcommit 5c5d7c6c079267f9d84a333ea03b8e32f37d7c48[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Wed May 21 16:21:10 2025 +0200
+
+    rajout description image disponibilité
+
+[33mcommit 74f4f1c9b38f07e8f31c7a1e236bbae1481ffe0d[m
+Author: Jb <jean.baptiste.bertron@gmail.com>
+Date:   Wed May 21 16:03:38 2025 +0200
+
+    commit 1
+
+[33mcommit bbdcca91eba39beeb8eefbab322155a4a0434d2c[m
+Merge: 8680ca5 2a95b30
+Author: aurelien-oc-mentorship <65898532+aurelien-oc-mentorship@users.noreply.github.com>
+Date:   Sun Oct 23 19:40:27 2022 -0500
+
+    Merge pull request #11 from aurelien-oc-mentorship/main
+    
+    Fix
+
+[33mcommit 2a95b308145b0d0b445684735e98df8d22bab429[m
+Author: aurelien-oc-mentorship <65898532+aurelien-oc-mentorship@users.noreply.github.com>
+Date:   Sun Oct 23 19:39:52 2022 -0500
+
+    fix package
+
+[33mcommit 8e93127801cd96404528f7fc53ed9404afaa815e[m
+Author: aurelien-oc-mentorship <65898532+aurelien-oc-mentorship@users.noreply.github.com>
+Date:   Sun Oct 23 17:52:43 2022 -0500
+
+    Add elements to start project
+    Readme updated and package json added with dependency http-server
+
+[33mcommit d50ed88914b6ad459f02990c7e68364c304c2aae[m
+Author: aurelien-oc-mentorship <65898532+aurelien-oc-mentorship@users.noreply.github.com>
+Date:   Sun Oct 23 17:39:43 2022 -0500
+
+    Project Guideline codebase
+
+[33mcommit 8680ca537f45c75a3b934d2c769c3591bd4cf600[m
+Author: aurelien-oc-mentorship <65898532+aurelien-oc-mentorship@users.noreply.github.com>
+Date:   Thu Oct 20 12:11:56 2022 -0500
+
+    first commit

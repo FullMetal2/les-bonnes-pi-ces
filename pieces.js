@@ -1,9 +1,27 @@
 import { ajoutListenerAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
-    // Récupération pièces du fichier JSON //
-const reponse = await fetch(`http://localhost:8081/pieces`);
-const pieces = await reponse.json();
+
+let pieces = window.localStorage.getItem("pieces");
+    if(pieces === null) {
+
+        
+            // Récupération pièces du fichier JSON //
+        const reponse = await fetch(`http://localhost:8081/pieces`);
+        pieces = await reponse.json();
+        
+
+        const valeurPieces = JSON.stringify(pieces);
+        window.localStorage.setItem("pieces", valeurPieces);
+        console.log("données API")
+    }else{
+        pieces = JSON.parse(pieces);
+        console.log("données localStorage")
+}
 ajoutListenerEnvoyerAvis();
 
+const btnMettreaJour = document.querySelector(".btn-maj");
+btnMettreaJour.addEventListener("click", function () {
+    window.localStorage.removeItem("pieces");
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Boucle for pour affiché toutes les pièces //
