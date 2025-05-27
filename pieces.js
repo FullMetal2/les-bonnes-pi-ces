@@ -1,4 +1,4 @@
-import { ajoutListenerAvis, ajoutListenerEnvoyerAvis } from "./avis.js";
+import { ajoutListenerAvis, ajoutListenerEnvoyerAvis, afficherAvis } from "./avis.js";
 
 let pieces = window.localStorage.getItem("pieces");
     if(pieces === null) {
@@ -76,6 +76,17 @@ piecesElement.appendChild(avisBouton);
 
 generePieces(pieces);
 
+for(let i = 0; i < pieces.length; i++){
+    const id = pieces[i].id;
+    const avisJSON = window.localStorage.getItem(`avis-piece-${id}`);
+    const avis = JSON.parse(avisJSON);
+
+    if(avis !== null){
+        const parentElement = document.querySelector(`article[data-id="${id}"]`);
+        afficherAvis(piecesElement, avis)
+    }
+}
+console.log("c'est bon pour les avis")
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Fonction click  pour trier les pièces par rapport è leurs prix //
 const boutonTrier = document.querySelector(".btn-trier");

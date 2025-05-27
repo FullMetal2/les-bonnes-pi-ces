@@ -7,16 +7,22 @@ export function ajoutListenerAvis() {
             const id = event.target.dataset.id;
             const reponse = await fetch(`http://localhost:8081/pieces/${id}/avis`)
             const avis = await reponse.json();
+            window.localStorage.setItem(`avis-piece-${id}`, JSON.stringify(avis));
             const piecesElement = event.target.parentElement;
+            afficherAvis(piecesElement, avis)
 
+
+        });
+    }
+}
+export function afficherAvis(piecesElement, avis) {
             const avisElement = document.createElement("p");
                 for (let i = 0 ; i < avis.length; i++) {
                     avisElement.innerHTML += `<b>${avis[i].utilisateur}:</b> ${avis[i].commentaire} <br>`;
                 }
             piecesElement.appendChild(avisElement);
-        });
-    }
-}
+};
+
 
 
 export function ajoutListenerEnvoyerAvis() {
