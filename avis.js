@@ -7,7 +7,7 @@ export function ajoutListenerAvis() {
             const id = event.target.dataset.id;
             const reponse = await fetch(`http://localhost:8081/pieces/${id}/avis`)
             const avis = await reponse.json();
-            window.localStorage.setItem(`avis-piece-${id}`, JSON.stringify(avis));
+            window.localStorage.setItem(`avis-piece-${id}`, JSON.stringify(avis))
             const piecesElement = event.target.parentElement;
             afficherAvis(piecesElement, avis)
 
@@ -46,4 +46,37 @@ export function ajoutListenerEnvoyerAvis() {
         });
     });
      
+}
+
+export async function afficherGraphiqueAvis() {
+    const avis = await fetch("http://localhost:8081/avis").then(avis => avis.json());
+    const nb_commentaires = [0, 0, 0, 0, 0];
+        for (let commentaire of avis) {
+            nb_commentaires[commentaire.nbEtoile - 1]++;
+        }
+
+    const labels = ["5", "4", "3", "2", "1"];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: "étoiles attribuées",
+            data: nb_commentaires.reverse(),
+            backgroundColor: "rgba(255, 230, 0, 1)",
+        }]
+    }
+
+    const config = {
+        type: "bar",
+        data: data,
+        options: {
+            indexAxis: "y",
+        },
+    }
+    console.log(nb_commentaires)
+
+    const graphiqueAvis = new Chart(
+        document.querySelector("#graphique-avis"),
+        config,
+    );
 }

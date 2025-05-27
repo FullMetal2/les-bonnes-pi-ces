@@ -1,4 +1,4 @@
-import { ajoutListenerAvis, ajoutListenerEnvoyerAvis, afficherAvis } from "./avis.js";
+import { ajoutListenerAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGraphiqueAvis } from "./avis.js";
 
 let pieces = window.localStorage.getItem("pieces");
     if(pieces === null) {
@@ -36,6 +36,7 @@ const article = pieces[i]
 const sectionFiches = document.querySelector(".fiches");
 
 const piecesElement =  document.createElement("article");
+piecesElement.dataset.id = pieces[i].id
 
 const imageElement = document.createElement("img");
 imageElement.src = article.image;
@@ -82,7 +83,8 @@ for(let i = 0; i < pieces.length; i++){
     const avis = JSON.parse(avisJSON);
 
     if(avis !== null){
-        const parentElement = document.querySelector(`article[data-id="${id}"]`);
+        const piecesElement = document.querySelector(`article[data-id="${id}"]`);
+        console.log(piecesElement)
         afficherAvis(piecesElement, avis)
     }
 }
@@ -221,3 +223,5 @@ inputPrixMax.addEventListener("input", function () {
     document.querySelector(".fiches").innerHTML = "";
     generePieces(piecesFiltrees);
 })
+
+await afficherGraphiqueAvis();
