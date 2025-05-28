@@ -1,3 +1,5 @@
+
+
 import { ajoutListenerAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGraphiqueAvis } from "./avis.js";
 
 let pieces = window.localStorage.getItem("pieces");
@@ -225,4 +227,3 @@ inputPrixMax.addEventListener("input", function () {
 })
 
 await afficherGraphiqueAvis();
-await afficherGraphiqueDisponible();

@@ -1,3 +1,6 @@
+/* global Chart */
+
+
 export function ajoutListenerAvis() {
     const piecesElement = document.querySelectorAll(".fiches article button");
 
@@ -75,7 +78,7 @@ export async function afficherGraphiqueAvis() {
     }
     console.log(nb_commentaires)
 
-    const graphiqueAvis = new Chart(
+    new Chart(
         document.querySelector("#graphique-avis"),
         config,
     );
